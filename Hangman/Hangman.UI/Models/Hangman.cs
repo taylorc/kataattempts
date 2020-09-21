@@ -29,7 +29,12 @@ namespace HangmanKata.UI.Models
 
         public bool Guess(string letter)
         {
-            if(!Regex.IsMatch(letter, "\\w"))
+            if(!Regex.IsMatch(letter, "[A-Za-z]"))
+            {
+                return false;
+            }
+
+            if (letter.Length > 1)
             {
                 return false;
             }
