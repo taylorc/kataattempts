@@ -24,7 +24,7 @@ namespace Hangman.Tests.Unit
             var incorrectGuesses = 5;
 
             var hangman = new HangmanKata.UI.Models.Hangman(secretWord, incorrectGuesses);
-            hangman.InProgress.Should().Be(true);
+            hangman.GameState.Should().Be(GameState.InProgress);
         }
 
         [Theory]
@@ -76,6 +76,91 @@ namespace Hangman.Tests.Unit
 
             hangman.Guess(letter).Should().BeOfType(result);
 
+        }
+
+        [Fact]
+        public void ShouldReturnGameWonIfAllLettersGuessedCorrectly()
+        {
+            var secretWord = "secRetWord";
+            var incorrectGuesses = 5;
+
+            var hangman = new HangmanKata.UI.Models.Hangman(secretWord, incorrectGuesses);
+
+            foreach (var letter in secretWord)
+            {
+                hangman.Guess(letter.ToString());
+            }
+
+            hangman.GameState.Should().Be(GameState.Won);
+        }
+
+        [Theory]
+        [InlineData("s","e","c","r","e","t","w","o","r")]
+        public void ShouldReturnGameInProgressIfAllLettersAreNotGuessedAsYes(params string[] values)
+        {
+            var secretWord = "secRetWord";
+            var incorrectGuesses = 5;
+
+            var hangman = new HangmanKata.UI.Models.Hangman(secretWord, incorrectGuesses);
+
+            foreach (var letter in values)
+            {
+                hangman.Guess(letter.ToString());
+            }
+
+            hangman.GameState.Should().Be(GameState.InProgress);
+        }
+
+        [Theory]
+        [InlineData("s", "e", "c", "r", "e", "t", "w", "o", "r", "d", "d")]
+        public void ShouldReturnGameWonIfAllLettersAreGuessedButMoreLettersAreAdded(params string[] values)
+        {
+            var secretWord = "secRetWord";
+            var incorrectGuesses = 5;
+
+            var hangman = new HangmanKata.UI.Models.Hangman(secretWord, incorrectGuesses);
+
+            foreach (var letter in values)
+            {
+                hangman.Guess(letter.ToString());
+            }
+
+            hangman.GameState.Should().Be(GameState.Won);
+        }
+
+        [Theory]
+        [InlineData(1, "x","a")]
+        [InlineData(2, "x","y", "a")]
+        [InlineData(3, "x","a", "b")]
+        public void ShouldReturnGameLostIfIncorrectGuessesAreExceeded(int incorrectGuesses, params string[] values)
+        {
+            var secretWord = "secRetWord";
+
+            var hangman = new HangmanKata.UI.Models.Hangman(secretWord, incorrectGuesses);
+
+            foreach (var letter in values)
+            {
+                hangman.Guess(letter);
+            }
+
+            hangman.GameState.Should().Be(GameState.Lost);
+        }
+
+        [Theory]
+        [InlineData(1, "x", "a", "y")]
+        [InlineData(2, "x", "a", "y", "x", "a", "y")]
+        public void ShouldReturnGameLostIfIncorrectGuessesAreExceededButMoreLettersAreAdded(int incorrectGuesses, params string[] values)
+        {
+            var secretWord = "secRetWord";
+
+            var hangman = new HangmanKata.UI.Models.Hangman(secretWord, incorrectGuesses);
+
+            foreach (var letter in values)
+            {
+                hangman.Guess(letter);
+            }
+
+            hangman.GameState.Should().Be(GameState.Lost);
         }
     }
 }
