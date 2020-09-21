@@ -1,0 +1,45 @@
+[14:11:05.360 Verbose] - BuildManager - System.IO.FileNotFoundException: Could not find file 'D:\Working\git\kataattempts\Hangman\.vs\HangmanKata\v16\lut\0\b\Hangman.UI\bin\Debug\netstandard2.1\HangmanKata.UI.dll'.
+File name: 'D:\Working\git\kataattempts\Hangman\.vs\HangmanKata\v16\lut\0\b\Hangman.UI\bin\Debug\netstandard2.1\HangmanKata.UI.dll'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at Roslyn.Utilities.FileUtilities.OpenFileStream(String path)
+   at Microsoft.CodeAnalysis.MetadataReference.CreateFromFile(String path, MetadataReferenceProperties properties, DocumentationProvider documentation)
+   at Microsoft.CodeAnalysis.LiveUnitTesting.BuildManagement.CompilationComparer.TryGetReference(CommandLineReference commandLineReference, Logger logger, MetadataReference& reference)
+[14:11:05.400 Verbose] - BuildManager - D:\Working\git\kataattempts\Hangman\Hangman.Tests.Unit\HangmanTests.cs(11,31): error CS0246: The type or namespace name 'HangmanKata' could not be found (are you missing a using directive or an assembly reference?)
+[14:11:05.400 Verbose] - BuildManager - C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Roslyn\Microsoft.CSharp.Core.targets(70,5): error MSB4181: The "Csc" task returned false but did not log an error.
+[14:11:05.404 Verbose] - BuildManager - Some of the file paths defined in the csproj under the Live Unit Testing build path are missing. Verify whether these files should be present under the Live Unit Testing build path and if necessary update the csproj definition to look these files up in a different place.
+[14:11:05.405 Verbose] - BuildManager - Item _OutputPathItem 'D:\Working\git\kataattempts\Hangman\.vs\HangmanKata\v16\lut\0\b\HangmanKata.Tests.Unit\Debug\netcoreapp3.1\' evaluated via:
+_OutputPathItem: '$(OutDir)' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:272
+  OutDir: '$(OutputPath)' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:193
+    OutputPath: '$(OutputPath)$(TargetFramework.ToLowerInvariant())\' @ C:\Program Files\dotnet\sdk\3.1.402\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.TargetFrameworkInference.targets:186
+      OutputPath: '$(BaseOutputPath)$(Configuration)\' @ C:\Program Files\dotnet\sdk\3.1.402\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.DefaultOutputPaths.targets:33
+        BaseOutputPath: 'D:\Working\git\kataattempts\Hangman\.vs\HangmanKata\v16\lut\0\b\HangmanKata.Tests.Unit\' @ D:\Working\git\kataattempts\Hangman\Hangman.Tests.Unit\HangmanKata.Tests.Unit.csproj:0
+        Configuration: 'Debug'
+[14:11:05.405 Verbose] - BuildManager - Item AppConfigFileDestination 'D:\Working\git\kataattempts\Hangman\.vs\HangmanKata\v16\lut\0\b\HangmanKata.Tests.Unit\Debug\netcoreapp3.1\HangmanKata.Tests.Unit.dll.config' evaluated via:
+AppConfigFileDestination: '$(OutDir)$(TargetFileName).config' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:303
+  OutDir: '$(OutputPath)' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:193
+    OutputPath: '$(OutputPath)$(TargetFramework.ToLowerInvariant())\' @ C:\Program Files\dotnet\sdk\3.1.402\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.TargetFrameworkInference.targets:186
+      OutputPath: '$(BaseOutputPath)$(Configuration)\' @ C:\Program Files\dotnet\sdk\3.1.402\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.DefaultOutputPaths.targets:33
+        BaseOutputPath: 'D:\Working\git\kataattempts\Hangman\.vs\HangmanKata\v16\lut\0\b\HangmanKata.Tests.Unit\' @ D:\Working\git\kataattempts\Hangman\Hangman.Tests.Unit\HangmanKata.Tests.Unit.csproj:0
+        Configuration: 'Debug'
+  TargetFileName: '$(TargetName)$(TargetExt)' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:212
+    TargetName: '$(AssemblyName)' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:204
+      AssemblyName: 'HangmanKata.Tests.Unit' @ D:\Working\git\kataattempts\Hangman\Hangman.Tests.Unit\HangmanKata.Tests.Unit.csproj:8
+    TargetExt: '.dll' @ C:\Program Files\dotnet\sdk\3.1.402\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.Sdk.BeforeCommon.targets:82
+[14:11:05.405 Verbose] - BuildManager - Item _DebugSymbolsOutputPath 'D:\Working\git\kataattempts\Hangman\.vs\HangmanKata\v16\lut\0\b\HangmanKata.Tests.Unit\Debug\netcoreapp3.1\HangmanKata.Tests.Unit.pdb' evaluated via:
+_DebugSymbolsOutputPath: '@(_DebugSymbolsIntermediatePath->'$(OutDir)%(Filename)%(Extension)')' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:372
+  OutDir: '$(OutputPath)' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:193
+    OutputPath: '$(OutputPath)$(TargetFramework.ToLowerInvariant())\' @ C:\Program Files\dotnet\sdk\3.1.402\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.TargetFrameworkInference.targets:186
+      OutputPath: '$(BaseOutputPath)$(Configuration)\' @ C:\Program Files\dotnet\sdk\3.1.402\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.DefaultOutputPaths.targets:33
+        BaseOutputPath: 'D:\Working\git\kataattempts\Hangman\.vs\HangmanKata\v16\lut\0\b\HangmanKata.Tests.Unit\' @ D:\Working\git\kataattempts\Hangman\Hangman.Tests.Unit\HangmanKata.Tests.Unit.csproj:0
+        Configuration: 'Debug'
+[14:11:05.405 Verbose] - BuildManager - Item _ApplicationManifestFinal 'D:\Working\git\kataattempts\Hangman\.vs\HangmanKata\v16\lut\0\b\HangmanKata.Tests.Unit\Debug\netcoreapp3.1\Native.HangmanKata.Tests.Unit.manifest' evaluated via:
+_ApplicationManifestFinal: '$(OutDir)$(_DeploymentTargetApplicationManifestFileName)' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:410
+  OutDir: '$(OutputPath)' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:193
+    OutputPath: '$(OutputPath)$(TargetFramework.ToLowerInvariant())\' @ C:\Program Files\dotnet\sdk\3.1.402\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.TargetFrameworkInference.targets:186
+      OutputPath: '$(BaseOutputPath)$(Configuration)\' @ C:\Program Files\dotnet\sdk\3.1.402\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.DefaultOutputPaths.targets:33
+        BaseOutputPath: 'D:\Working\git\kataattempts\Hangman\.vs\HangmanKata\v16\lut\0\b\HangmanKata.Tests.Unit\' @ D:\Working\git\kataattempts\Hangman\Hangman.Tests.Unit\HangmanKata.Tests.Unit.csproj:0
+        Configuration: 'Debug'
+  _DeploymentTargetApplicationManifestFileName: 'Native.$(AssemblyName).manifest' @ C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets:228
+    AssemblyName: 'HangmanKata.Tests.Unit' @ D:\Working\git\kataattempts\Hangman\Hangman.Tests.Unit\HangmanKata.Tests.Unit.csproj:8

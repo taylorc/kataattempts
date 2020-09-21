@@ -1,0 +1,12 @@
+D:\Working\git\kataattempts\Hangman\.vs\HangmanKata\v16\lut\0\i\HangmanKata.UI\netstandard2.1\HangmanKata.UI.csprojAssemblyReference.cache
+D:\Working\git\kataattempts\Hangman\.vs\HangmanKata\v16\lut\0\i\HangmanKata.UI\netstandard2.1\HangmanKata.UI.AssemblyInfoInputs.cache
+D:\Working\git\kataattempts\Hangman\.vs\HangmanKata\v16\lut\0\i\HangmanKata.UI\netstandard2.1\HangmanKata.UI.AssemblyInfo.cs
+D:\Working\git\kataattempts\Hangman\.vs\HangmanKata\v16\lut\0\i\HangmanKata.UI\netstandard2.1\HangmanKata.UI.RazorComponent.input.cache
+D:\Working\git\kataattempts\Hangman\.vs\HangmanKata\v16\lut\0\i\HangmanKata.UI\netstandard2.1\RazorDeclaration\App.razor.g.cs
+D:\Working\git\kataattempts\Hangman\.vs\HangmanKata\v16\lut\0\i\HangmanKata.UI\netstandard2.1\RazorDeclaration\Pages\Counter.razor.g.cs
+D:\Working\git\kataattempts\Hangman\.vs\HangmanKata\v16\lut\0\i\HangmanKata.UI\netstandard2.1\RazorDeclaration\Pages\FetchData.razor.g.cs
+D:\Working\git\kataattempts\Hangman\.vs\HangmanKata\v16\lut\0\i\HangmanKata.UI\netstandard2.1\RazorDeclaration\Pages\Index.razor.g.cs
+D:\Working\git\kataattempts\Hangman\.vs\HangmanKata\v16\lut\0\i\HangmanKata.UI\netstandard2.1\RazorDeclaration\Shared\MainLayout.razor.g.cs
+D:\Working\git\kataattempts\Hangman\.vs\HangmanKata\v16\lut\0\i\HangmanKata.UI\netstandard2.1\RazorDeclaration\Shared\NavMenu.razor.g.cs
+D:\Working\git\kataattempts\Hangman\.vs\HangmanKata\v16\lut\0\i\HangmanKata.UI\netstandard2.1\RazorDeclaration\Shared\SurveyPrompt.razor.g.cs
+D:\Working\git\kataattempts\Hangman\.vs\HangmanKata\v16\lut\0\i\HangmanKata.UI\netstandard2.1\RazorDeclaration\_Imports.razor.g.cs

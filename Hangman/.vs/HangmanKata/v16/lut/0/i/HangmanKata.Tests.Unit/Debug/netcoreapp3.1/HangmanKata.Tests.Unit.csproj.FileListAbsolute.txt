@@ -1,0 +1,2 @@
+D:\Working\git\kataattempts\Hangman\.vs\HangmanKata\v16\lut\0\i\HangmanKata.Tests.Unit\Debug\netcoreapp3.1\HangmanKata.Tests.Unit.AssemblyInfoInputs.cache
+D:\Working\git\kataattempts\Hangman\.vs\HangmanKata\v16\lut\0\i\HangmanKata.Tests.Unit\Debug\netcoreapp3.1\HangmanKata.Tests.Unit.AssemblyInfo.cs
