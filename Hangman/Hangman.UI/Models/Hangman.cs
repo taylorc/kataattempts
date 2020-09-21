@@ -16,8 +16,6 @@ namespace HangmanKata.UI.Models
         private List<string> IncorrectGuesses;
         public GameState GameState { get; set; }
 
-        private readonly RulesEngine _rulesEngine;
-
         public Hangman(string secretWord, int incorrectAllowedGuesses)
         {
             _secretWord = secretWord.ToUpper();
@@ -25,7 +23,7 @@ namespace HangmanKata.UI.Models
             _correctGuesses = 0;
             IncorrectGuesses = new List<string>();
             GameState = GameState.InProgress;
-            _rulesEngine = new RulesEngine(_secretWord);
+
         }
 
         public HangmanResult Guess(string letter)
@@ -37,74 +35,73 @@ namespace HangmanKata.UI.Models
                 return result;
             }
 
-            if (!_rulesEngine.IsAValidLetter(letter))
-            {
-                _incorrectAllowedGuesses--;
-                result = new IncorrectHangmanResult();
-            }
+            result = IsAValidLetter(letter, result);
+            result = IsAValidLength(letter, result);
 
-            if (!_rulesEngine.IsLetterASingleOne(letter))
+            if (IncorrectGuesses.FirstOrDefault(x => x.Equals(letter.ToUpper())) != null)
             {
-                _incorrectAllowedGuesses--;
-                result = new IncorrectHangmanResult();
-            }
-
-            if (_rulesEngine.HasLetterBeenGuessedPreviously(letter, IncorrectGuesses)){
                 _incorrectAllowedGuesses--;
                 return new DuplicateHangmanGuessResult();
             }
 
-            if (!_rulesEngine.SecretWordContainsLetter(letter))
+            result = IsACorrectGuess(letter, result);
+            IsGameLost();
+
+            _correctGuesses++;
+            IsGameWon();
+
+            return result;
+        }
+
+        private void IsGameWon()
+        {
+            if (_correctGuesses == _secretWord.Length)
+                GameState = GameState.Won;
+        }
+
+        private void IsGameLost()
+        {
+            if (IncorrectGuesses.Count() > _incorrectAllowedGuesses)
+            {
+                GameState = GameState.Lost;
+            }
+        }
+
+        private HangmanResult IsACorrectGuess(string letter, HangmanResult result)
+        {
+            if (!_secretWord.Contains(letter.ToUpper()))
             {
                 _incorrectAllowedGuesses--;
                 IncorrectGuesses.Add(letter.ToUpper());
                 result = new IncorrectHangmanResult();
             }
 
-            if (IncorrectGuesses.Count() > _incorrectAllowedGuesses)
+            return result;
+        }
+
+        private HangmanResult IsAValidLength(string letter, HangmanResult result)
+        {
+            if (letter.Length > 1)
             {
-                GameState = GameState.Lost;
+                _incorrectAllowedGuesses--;
+                result = new IncorrectHangmanResult();
             }
 
-            _correctGuesses++;
+            return result;
+        }
 
-            if (_correctGuesses == _secretWord.Length)
-                GameState = GameState.Won;
-
+        private HangmanResult IsAValidLetter(string letter, HangmanResult result)
+        {
+            if (!Regex.IsMatch(letter, "[A-Za-z]"))
+            {
+                _incorrectAllowedGuesses--;
+                result = new IncorrectHangmanResult();
+            }
 
             return result;
         }
     }
 
-    public class RulesEngine
-    {
-        private string _secretWord;
-
-        public RulesEngine(string secretWord)
-        {
-            _secretWord = secretWord;
-        }
-
-        internal bool HasLetterBeenGuessedPreviously(string letter, List<string> incorrectGuesses)
-        {
-            return incorrectGuesses.FirstOrDefault(x => x.Equals(letter.ToUpper())) != null;
-        }
-
-        internal bool IsAValidLetter(string letter)
-        {
-            return Regex.IsMatch(letter, "[A-Za-z]");
-        }
-
-        internal bool IsLetterASingleOne(string letter)
-        {
-            return letter.Length == 1;
-        }
-
-        internal bool SecretWordContainsLetter(string letter)
-        {
-            return _secretWord.Contains(letter, StringComparison.InvariantCultureIgnoreCase);
-        }
-    }
 
     public class HangmanResult
     {
